@@ -9,7 +9,7 @@ Build mode: fast
 
 ## Slices
 
-- [ ] **1. Browse the pre-seeded "Espresso Haute" storefront, filter deals, and inspect 3+ image product specs**
+- [x] **1. Browse the pre-seeded "Espresso Haute" storefront, filter deals, and inspect 3+ image product specs**
   Becomes usable: Visitors can open the Dawa Equips storefront styled in the "Espresso Haute" palette, see active Flash Sale and Seasonal Deal hero banners and pre-seeded refurbished commercial appliances loaded from NeonDB PostgreSQL, filter by keyword, category, brand, or price range, and click any product card to inspect its 3+ image gallery, variant selector, stock availability, and technical specifications table.
   Why now: Bootstraps the React + Vite + Tailwind + Express + Drizzle stack inside the first usable slice and immediately proves the database schema, seeded catalog, and the core trust kernel (structured commercial equipment specs, multi-image inspection, and deal visibility) before adding write flows.
   PRD ref: `prd.md > The Core Journey` (steps 1–3), `prd.md > Look and Feel`, `prd.md > 1. Storefront Discovery, Search, and Filtering`, `prd.md > 2. Product Detail Gallery and Specifications`, `prd.md > States and Boundaries`
