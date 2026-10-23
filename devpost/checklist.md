@@ -19,7 +19,7 @@ Build mode: fast
   Learner check: Open the storefront (`http://localhost:5173`), click an active Flash Sale banner, filter the catalog by category/brand/price, and click a product card to inspect its 3+ image gallery and technical specifications table.
   Commit: `Add seeded Espresso Haute storefront, filters, and product detail gallery`
 
-- [ ] **2. Vendor publishes products (4-step Base64 form & CSV bulk import) and broadcasts instant promo banners via SSE**
+- [x] **2. Vendor publishes products (4-step Base64 form & CSV bulk import) and broadcasts instant promo banners via SSE**
   Becomes usable: The retailer can open the Vendor Admin Portal (`vendor.localhost:5173` or `/vendor`), create or edit products via the 4-step dialog (with 3+ compressed Base64/URL images), bulk-import products via CSV (holding rows with fewer than 3 images as `Needs 3+ Images` until completed), and publish predefined Flash Sale / Seasonal Deal banners that immediately appear on open buyer storefront tabs via Server-Sent Events (`GET /api/events`) while updating the linked product's discount pricing.
   Why now: Tackles the highest technical risks and your primary architecture focus early — 25MB Base64 image payloads, the two-stage CSV 3-image rule, transactional Drizzle promotion price updates, and live Server-Sent Events broadcasting (`promo:updated`, `product:updated`).
   PRD ref: `prd.md > The Core Journey` (step 5), `prd.md > 5. Vendor Product Management (Multi-Step Form & CSV Bulk Import)`, `prd.md > 6. Vendor Promotions & Banner Builder`, `prd.md > States and Boundaries`
