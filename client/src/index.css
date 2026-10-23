@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-alabaster: #FDFBF7;
+  --text-espresso: #1A1110;
+  --accent-brass: #D4AF37;
+  --accent-sage: #9CAF88;
+}
+
+body {
+  background-color: var(--bg-alabaster);
+  color: var(--text-espresso);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Modal Dialog scroll prevention per modern-web-guidance */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(26, 17, 16, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* Custom scrollbars with Espresso theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5C8BD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B28E22;
+}
