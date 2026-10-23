@@ -29,7 +29,7 @@ Build mode: fast
   Learner check: Open `/vendor` (or `vendor.localhost:5173`), import a CSV to see rows flagged `Needs 3+ Images`, edit a product in the 4-step modal to attach 3+ images so it goes live, and publish a new Flash Sale or Seasonal Deal banner in Promotions to watch it appear live on the storefront with updated discount math.
   Commit: `Add vendor product manager, CSV import, and live SSE promotion builder`
 
-- [ ] **3. Buyer adds appliances to cart, completes checkout, and receives a printable `DRAFT` Order Invoice**
+- [x] **3. Buyer adds appliances to cart, completes checkout, and receives a printable `DRAFT` Order Invoice**
   Becomes usable: Buyers can add commercial appliances and selected variants to a persistent cart (`localStorage`), adjust quantities, fill in `Buyer Name`, `Buyer Phone`, `Buyer Email`, and `Delivery Note`, and confirm their order to immediately view/print an itemized **Order Invoice** (`status: 'DRAFT'`) with a Products Bought vs. Price table while an `OrderInitiation` order and email log are saved.
   Why now: Connects storefront discovery and promotions to the invoice-first purchase workflow and establishes the `orders`, `invoices`, and `email_logs` records needed for vendor fulfillment and buyer tracking.
   PRD ref: `prd.md > The Core Journey` (step 4), `prd.md > 3. Cart, Checkout, and Draft Invoice Generation`, `prd.md > Product Decisions`
@@ -39,7 +39,7 @@ Build mode: fast
   Learner check: Add two products to the cart on the storefront, adjust quantities, submit the checkout form with your contact and meetup note, and inspect the generated `DRAFT` Order Invoice table.
   Commit: `Add cart drawer, checkout flow, and draft order invoice generation`
 
-- [ ] **4. Vendor fulfills orders (`OrderReceived` to `OrderDelivered` / `PAID` invoice & stock deduction) and buyer tracks progress by phone**
+- [x] **4. Vendor fulfills orders (`OrderReceived` to `OrderDelivered` / `PAID` invoice & stock deduction) and buyer tracks progress by phone**
   Becomes usable: When the vendor opens an `OrderInitiation` order in Vendor Orders, it automatically transitions to `OrderReceived`; stepping it through `OrderProcessed` to `OrderDelivered` flips the linked invoice from `DRAFT` to `PAID`, deducts ordered quantities from product stock (triggering out-of-stock badges and vendor alerts if stock hits `0`), records/sends status emails, and updates the Buyer **Track Order** phone lookup view and 5-stage progress bar live.
   Why now: Completes the full marketplace loop — linking vendor order fulfillment and inventory depletion directly to invoice completion, email notifications, and buyer phone-number order tracking.
   PRD ref: `prd.md > The Core Journey` (steps 6–7), `prd.md > 4. Buyer Phone Lookup, Order Lifecycle Tracking, and Email Updates`, `prd.md > 7. Vendor Orders and Invoice Management`, `prd.md > States and Boundaries`
@@ -51,12 +51,12 @@ Build mode: fast
 
 ## Hands-on Checkpoints
 
-- [ ] Early usable behavior explored — after Slice 2 (storefront catalog/filters, vendor 4-step & CSV product creation, and live SSE promo banner publishing)
-- [ ] Final kick-the-tires exploration and feedback completed
+- [x] Early usable behavior explored — after Slice 2 (storefront catalog/filters, vendor 4-step & CSV product creation, and live SSE promo banner publishing)
+- [x] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
 
-- [ ] Final review complete — feedback resolved and learner confirms ready to ship
+- [x] Final review complete — feedback resolved and learner confirms ready to ship
 
 ## Code Tour and App Map
 
