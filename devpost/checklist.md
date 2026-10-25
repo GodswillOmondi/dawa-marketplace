@@ -62,12 +62,12 @@ Build mode: fast
 
 - [ ] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
 - [ ] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
-- [ ] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
+- [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
 
-Activity and evidence: [what actually happened; real document/test/code references; unfinished work if interrupted]
-Route and stops: [actual paths and symbols; guided stops completed, or reference-only route]
-Edit outcome: [tried/kept/reverted/declined/not applicable; verification if changed]
-Reflection: [offered/answered/declined/already covered — personal answer belongs only in the ignored profile]
-Activity mode: [live app and editor, explicit static fallback, focused alternative, prior practice, or recap]
+Activity and evidence: Focused activity offered around the delivery process, connecting Slice 4's planned verification to `server/routes/orders.ts` and `client/src/components/storefront/OrderTrackerModal.tsx`; learner response pending.
+Route and stops: Reference only — `client/src/components/storefront/CartCheckoutDrawer.tsx` (`handleSubmitOrder`), `client/src/lib/api.ts` (`createOrder`, `trackOrdersByPhone`), `server/routes/orders.ts` (order creation and stage update); buyer tracking in `client/src/components/storefront/OrderTrackerModal.tsx`.
+Edit outcome: Not applicable to the focused activity.
+Reflection: Pending learner response; not yet offered.
+Activity mode: Focused alternative; app map is a static offline reference.
 
 ## Revisions

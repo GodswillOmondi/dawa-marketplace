@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Dawa Equips — App Map</title>
+  <style>
+    :root { color-scheme: light; --paper:#fdfbf7; --ink:#1a1110; --brass:#a67c12; --sage:#526947; --line:#ded8cc; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 system-ui,sans-serif; }
+    main { max-width:900px; margin:auto; padding:2rem 1.25rem 4rem; }
+    h1,h2 { line-height:1.2; } h1 { font:700 clamp(2rem,6vw,3.4rem)/1.1 Georgia,serif; margin:.5rem 0; }
+    h2 { font:700 1.5rem Georgia,serif; margin:2rem 0 .5rem; }
+    a { color:#684d00; text-underline-offset:3px; } code { overflow-wrap:anywhere; }
+    .eyebrow { color:var(--sage); font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .lede { max-width:68ch; font-size:1.1rem; }
+    .panel { border:1px solid var(--line); border-radius:14px; padding:1rem 1.2rem; background:#fffefa; }
+    .flow { width:100%; height:auto; display:block; margin:.5rem 0; }
+    .flow text { font:14px system-ui,sans-serif; fill:var(--ink); }
+    .flow .small { font-size:11px; fill:#514843; }
+    .flow rect { fill:#fffefa; stroke:#a67c12; stroke-width:1.5; rx:10; }
+    .flow > path { stroke:#526947; stroke-width:2; fill:none; marker-end:url(#arrow); }
+    ol { padding-left:1.35rem; } li { margin:.5rem 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.75rem; }
+    .grid h3 { margin:.1rem 0 .3rem; font-size:1rem; }
+    footer { margin-top:2rem; border-top:1px solid var(--line); padding-top:1rem; font-size:.9rem; color:#514843; }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto !important; } }
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Project guide</p>
+  <h1>Dawa Equips Marketplace</h1>
+  <p class="lede">A marketplace for refurbished commercial appliances. Buyers inspect equipment, place an order, receive a draft invoice, and track fulfillment. The vendor portal advances orders and updates invoice and stock records.</p>
+
+  <section aria-labelledby="flow-title">
+    <h2 id="flow-title">Follow one order</h2>
+    <div class="panel">
+      <svg class="flow" viewBox="0 0 760 180" role="img" aria-labelledby="svg-title svg-desc">
+        <title id="svg-title">Checkout to order tracking code path</title>
+        <desc id="svg-desc">The checkout form calls the API helper, which posts to the order route. The server creates an order and draft invoice. Phone lookup then displays its current stage.</desc>
+        <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#526947"/></marker></defs>
+        <rect x="8" y="35" width="165" height="92"/><text x="24" y="64">Checkout form</text><text class="small" x="24" y="88">CartCheckoutDrawer</text><text class="small" x="24" y="106">buyer + items</text>
+        <path d="M177 81 H205"/>
+        <rect x="210" y="35" width="165" height="92"/><text x="226" y="64">API helper</text><text class="small" x="226" y="88">createOrder()</text><text class="small" x="226" y="106">POST /api/orders</text>
+        <path d="M375 81 H403"/>
+        <rect x="408" y="35" width="165" height="92"/><text x="424" y="64">Order route</text><text class="small" x="424" y="88">server/routes/orders.ts</text><text class="small" x="424" y="106">order + DRAFT invoice</text>
+        <path d="M573 81 H601"/>
+        <rect x="606" y="35" width="146" height="92"/><text x="622" y="64">Buyer result</text><text class="small" x="622" y="88">phone lookup</text><text class="small" x="622" y="106">stage + invoice</text>
+        <text class="small" x="8" y="158">Vendor fulfillment changes the order stage; delivery marks its invoice PAID and deducts stock.</text>
+      </svg>
+    </div>
+  </section>
+
+  <section aria-labelledby="route-title">
+    <h2 id="route-title">Reference route through the code</h2>
+    <p>This is a reference route; it is not a record of a live code tour.</p>
+    <ol>
+      <li><a href="../client/src/components/storefront/CartCheckoutDrawer.tsx"><code>client/src/components/storefront/CartCheckoutDrawer.tsx</code></a> — find <code>handleSubmitOrder</code>. It checks the buyer fields, turns cart rows into order items, and calls the API helper.</li>
+      <li><a href="../client/src/lib/api.ts"><code>client/src/lib/api.ts</code></a> — find <code>createOrder</code> and <code>trackOrdersByPhone</code>. These functions connect the interface to the order endpoints.</li>
+      <li><a href="../server/routes/orders.ts"><code>server/routes/orders.ts</code></a> — find <code>POST /api/orders</code> and <code>PATCH /:id/stage</code>. The route saves the order and invoice; delivery updates invoice status and product stock.</li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="changes-title">
+    <h2 id="changes-title">To change this, start here</h2>
+    <div class="grid">
+      <div class="panel"><h3>Checkout fields and invoice moment</h3><a href="../client/src/components/storefront/CartCheckoutDrawer.tsx">CartCheckoutDrawer.tsx</a></div>
+      <div class="panel"><h3>Order states, invoice, and stock behavior</h3><a href="../server/routes/orders.ts">server/routes/orders.ts</a></div>
+      <div class="panel"><h3>Phone lookup and progress display</h3><a href="../client/src/components/storefront/OrderTrackerModal.tsx">OrderTrackerModal.tsx</a></div>
+      <div class="panel"><h3>Product and order data fields</h3><a href="../server/db/schema.ts">server/db/schema.ts</a></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="practice-title">
+    <h2 id="practice-title">A practice to reuse</h2>
+    <p>The approved PRD’s <a href="prd.md">Core Journey</a> names checkout, fulfillment, and tracking in order. The checklist then ties each usable slice to a mechanical verification command and a learner check. On another project, write the user-visible outcome first, then connect it to the code path and evidence that would show it works.</p>
+  </section>
+
+  <section aria-labelledby="run-title">
+    <h2 id="run-title">Run it again</h2>
+    <p>From the project root, run <code>npm run dev</code> to start the client and server. The server needs the project’s configured database environment. Open the local address printed by Vite; use <code>/vendor</code> for the vendor portal.</p>
+  </section>
+
+  <footer>
+    <p>Offline-friendly snapshot of the source at <code>e3319ae</code>. Links are relative to this file; open it from the repository to follow them. The map can drift as the code changes.</p>
+    <p>Open <code>devpost/app-map.html</code> in a browser to revisit this guide.</p>
+  </footer>
+</main>
+</body>
+</html>
