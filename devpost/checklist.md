@@ -60,14 +60,14 @@ Build mode: fast
 
 ## Code Tour and App Map
 
-- [ ] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
-- [ ] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
+- [x] Learning activity complete — guided route, focused alternative, prior practice connected, or brief recap
+- [x] Optional edit and transfer reflection addressed — offered/declined/already covered/not applicable as appropriate
 - [x] `devpost/app-map.html` generated from finished code, checked, and shown, including a project-grounded practice to reuse
 
-Activity and evidence: Focused activity offered around the delivery process, connecting Slice 4's planned verification to `server/routes/orders.ts` and `client/src/components/storefront/OrderTrackerModal.tsx`; learner response pending.
+Activity and evidence: Brief recap connected the approved PRD's Core Journey and Slice 4 verification to the checkout, order stage update, and buyer tracking code. No learner-led code activity was performed.
 Route and stops: Reference only — `client/src/components/storefront/CartCheckoutDrawer.tsx` (`handleSubmitOrder`), `client/src/lib/api.ts` (`createOrder`, `trackOrdersByPhone`), `server/routes/orders.ts` (order creation and stage update); buyer tracking in `client/src/components/storefront/OrderTrackerModal.tsx`.
-Edit outcome: Not applicable to the focused activity.
-Reflection: Pending learner response; not yet offered.
-Activity mode: Focused alternative; app map is a static offline reference.
+Edit outcome: Not applicable; learner skipped the activity.
+Reflection: Declined with the wrap-up activity.
+Activity mode: Brief recap; app map is a static offline reference.
 
 ## Revisions
